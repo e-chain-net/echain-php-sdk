@@ -1,4 +1,3 @@
-// #define FFI_LIB "bcos-c-sdk.dll"
 #define FFI_LIB "libbcos-c-sdk.so"
 #define FFI_SCOPE "libFisco"
 
