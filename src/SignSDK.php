@@ -18,14 +18,30 @@ class SignSDK{
     private $chainid;
     private $abi;
 
-    function __construct() {
-        // $this->libFisco = get_lib_fisco();
-        $this->libFisco = FFI::load(__DIR__ . "/fisco-c-api.h");
-        // $this->libFisco = FFI::scope("libFisco");
+    private static $instance = null;
+ 
+    // 禁止被实例化
+    private function __construct()
+    {
+    }
+ 
+    // 禁止clone
+    private function __clone()
+    {
+    }
 
-        $this->groupid = "group0";
-        $this->chainid = "chain0";
-        $this->abi = "";
+    public static function getInstance(): object
+    {
+        if (empty(self::$instance)) {
+            self::$instance = new self();
+            self::$instance->libFisco = FFI::load(__DIR__ . "/fisco-c-api.h");
+            // $this->libFisco = FFI::scope("libFisco");
+
+            self::$instance->groupid = "group0";
+            self::$instance->chainid = "chain0";
+            self::$instance->abi = "";
+        }
+        return self::$instance;
     }
 
     /**

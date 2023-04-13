@@ -7,7 +7,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 use EChain\SignSDK;
 
 
-$sdk = new SignSDK();
+$sdk = SignSDK::getInstance();
 
 $private = "9f49267bed433fa1f298aedd81ba4bb3f73622f94b40e6e50d1190f25cca0b27";
 $contractAddress = "0x0c7ebf03fe7a61921ea4c93393c364859f3c2a3e";
