@@ -1,16 +1,15 @@
 {
     "name": "echain/fisco-php",
-    "description": "fisco-bcos php signing sdk supported by echain",
+    "description": "FISCO-BCOS php signing sdk supported by echain",
     "keywords": [
         "php",
         "echain",
         "fisco",
-        "fisco-bcos"
+        "FISCO-BCOS"
     ],
     "type": "library",
     "require": {
         "php": ">=7.4",
-        "mashape/unirest-php": "dev-master",
         "phpseclib/phpseclib": "~2.0.11",
         "kornrunner/keccak": "^1.0"
     },

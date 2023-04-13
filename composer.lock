@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0ba66b260a4a44e8082376e71d1c2176",
+    "content-hash": "5ea97bb60753d169a17bae246fbc9535",
     "packages": [
         {
             "name": "kornrunner/keccak",
@@ -60,64 +60,6 @@
                 "source": "https://github.com/kornrunner/php-keccak/tree/1.1.0"
             },
             "time": "2020-12-07T15:40:44+00:00"
-        },
-        {
-            "name": "mashape/unirest-php",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Kong/unirest-php.git",
-                "reference": "14aa9aa6919e4b70c59cd20722ac113c0ffeb45b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Kong/unirest-php/zipball/14aa9aa6919e4b70c59cd20722ac113c0ffeb45b",
-                "reference": "14aa9aa6919e4b70c59cd20722ac113c0ffeb45b",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "require": {
-                "ext-curl": "*",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "codeclimate/php-test-reporter": "0.1.*",
-                "phpunit/phpunit": "~4.4"
-            },
-            "suggest": {
-                "ext-json": "Allows using JSON Bodies for sending and parsing requests"
-            },
-            "default-branch": true,
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Unirest\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Unirest PHP",
-            "homepage": "https://github.com/Mashape/unirest-php",
-            "keywords": [
-                "client",
-                "curl",
-                "http",
-                "https",
-                "rest"
-            ],
-            "support": {
-                "email": "opensource@mashape.com",
-                "issues": "https://github.com/Kong/unirest-php/issues",
-                "source": "https://github.com/Kong/unirest-php/tree/master"
-            },
-            "time": "2017-02-24T17:06:01+00:00"
         },
         {
             "name": "phpseclib/phpseclib",
@@ -328,9 +270,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "mashape/unirest-php": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
