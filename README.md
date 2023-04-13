@@ -10,7 +10,7 @@ EChain fisco-bcos php signing sdk
 1. Reference in ``composer.json``
 ```
 "require": {
-    "echain/fisco-php":"^1.3"
+    "echain/fisco-php":"^1.2"
 }
 ```
 2. Call ``SignSDK`` in code
