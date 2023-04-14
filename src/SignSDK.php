@@ -18,6 +18,10 @@ class SignSDK{
     private $chainid;
     private $abi;
 
+    private $erc721MintSig;
+    private $erc721TransferSig;
+    private $erc721BurnSig;
+
     private static $instance = null;
  
     // 禁止被实例化
@@ -51,6 +55,10 @@ class SignSDK{
             self::$instance->groupid = "group0";
             self::$instance->chainid = "chain0";
             self::$instance->abi = "";
+
+            self::$instance->erc721MintSig = Formatter::toMethodFormat("mint(address,uint256)");
+            self::$instance->erc721TransferSig = Formatter::toMethodFormat("transferFrom(address,address,uint256)");
+            self::$instance->erc721BurnSig = Formatter::toMethodFormat("burn(uint256)");
         }
         return self::$instance;
     }
@@ -122,29 +130,23 @@ class SignSDK{
     }
 
     private function encodeMint($toAddress,$tokenID){
-        $method = 'mint(address,uint256)';
-        $formatMethod = Formatter::toMethodFormat($method);
         $formatTo = Formatter::toAddressFormat($toAddress);
         $formatTokenID = Formatter::toIntegerFormat($tokenID);
 
-        return "0x{$formatMethod}{$formatTo}{$formatTokenID}";
+        return "0x{$this->erc721MintSig}{$formatTo}{$formatTokenID}";
     }
 
     private function encodeTransfer($fromAddress,$toAddress,$tokenID){
-        $method = 'transferFrom(address,address,uint256)';
-        $formatMethod = Formatter::toMethodFormat($method);
         $formatFrom = Formatter::toAddressFormat($fromAddress);
         $formatTo = Formatter::toAddressFormat($toAddress);
         $formatTokenID = Formatter::toIntegerFormat($tokenID);
 
-        return "0x{$formatMethod}{$formatFrom}{$formatTo}{$formatTokenID}";
+        return "0x{$this->erc721TransferSig}{$formatFrom}{$formatTo}{$formatTokenID}";
     }
 
     private function encodeBurn($tokenID){
-        $method = 'burn(uint256)';
-        $formatMethod = Formatter::toMethodFormat($method);
         $formatTokenID = Formatter::toIntegerFormat($tokenID);
 
-        return "0x{$formatMethod}{$formatTokenID}";
+        return "0x{$this->erc721BurnSig}{$formatTokenID}";
     }
 }
