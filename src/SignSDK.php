@@ -30,11 +30,22 @@ class SignSDK{
     {
     }
 
+    private static function getOSHDir(){
+        switch(PHP_OS){
+            case "WINNT":
+                return "/fisco-c-api-win.h";
+            case "Linux":
+                return "/fisco-c-api-linux.h";
+            case "Darwin":
+                return "/fisco-c-api-mac.h";
+        }
+    }
+
     public static function getInstance(): object
     {
         if (empty(self::$instance)) {
             self::$instance = new self();
-            self::$instance->libFisco = FFI::load(__DIR__ . "/fisco-c-api.h");
+            self::$instance->libFisco = FFI::load(__DIR__ . self::getOSHDir());
             // $this->libFisco = FFI::scope("libFisco");
 
             self::$instance->groupid = "group0";
