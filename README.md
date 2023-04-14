@@ -2,15 +2,19 @@
 EChain fisco-bcos php signing sdk
 
 # Attention
-1. Only support running on **linux** now(since ffi library is different).
-2. Must use PHP with version >= 7.4 and enable **ffi** feature.
-3. Must put [libbcos-c-sdk.so](https://github.com/FISCO-BCOS/bcos-c-sdk/releases/download/v3.2.0/libbcos-c-sdk.so) to directory ``/usr/lib64`` before running.
+1. Must use PHP with version >= 7.4 and enable **ffi** feature.
+2. Dynamic library:
+- Linux: put [libbcos-c-sdk.so](https://github.com/FISCO-BCOS/bcos-c-sdk/releases/download/v3.2.0/libbcos-c-sdk.so) to directory ``/usr/lib64`` before running.
+- Windows: put [bcos-c-sdk.dll](https://github.com/FISCO-BCOS/bcos-c-sdk/releases/download/v3.2.0/bcos-c-sdk.dll) to directory ``C:\Windows\System32``
+- MacOS:
+    - M1: download [libbcos-c-sdk-aarch64.dylib](https://github.com/FISCO-BCOS/bcos-c-sdk/releases/download/v3.2.0/libbcos-c-sdk-aarch64.dylib) and rename to ``libbcos-c-sdk.dylib`` and put to ``/usr/local/lib``
+    - x64: download [libbcos-c-sdk.dylib](https://github.com/FISCO-BCOS/bcos-c-sdk/releases/download/v3.2.0/libbcos-c-sdk.dylib) and put to directory ``/usr/local/lib``
 
 # Usage
 ## 1. Add reference in ``composer.json``
 ```
 "require": {
-    "echain/fisco-php":"^1.2"
+    "echain/fisco-php":"^1.3"
 }
 ```
 ## 2. Call ``SignSDK`` in code
