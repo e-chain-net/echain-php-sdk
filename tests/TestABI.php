@@ -15,7 +15,10 @@ $PRIVATE_KEY = '0xd17053df99d95ba1589fdbb1ee1a84cf12f48ff0446caca1ff277763045dfd
 
 
 
-$method = 'transferFrom(address,address,uint256)';
+$methodMint = 'mint(address,uint256)';
+$methodTransferFrom = 'transferFrom(address,address,uint256)';
+$methodBurn = 'burn(uint256)';
+
 $from = "0x2242eaaedb3ecb4d02c43aef87dd25e4ef559c29";
 $to = "0x9847b8f7bf06fa6687f38475ab621c188689d11e";
 $val = "123";
@@ -33,10 +36,16 @@ $val = "123";
 // echo "elapsed:" . ($end-$start) . "ms";
 
 
-$formatMethod = Formatter::toMethodFormat($method);
+$formatMethodTransfer = Formatter::toMethodFormat($methodTransferFrom);
+$formatMethodMint = Formatter::toMethodFormat($methodMint);
+$formatMethodBurn = Formatter::toMethodFormat($methodBurn);
 $formatFrom = Formatter::toAddressFormat($from);
 $formatTo = Formatter::toAddressFormat($to);
 $formatInteger = Formatter::toIntegerFormat($val);
 
-$inputData = "0x{$formatMethod}{$formatFrom}{$formatTo}{$formatInteger}";
-echo $inputData;
+$inputMint = "0x{$formatMethodMint}{$formatTo}{$formatInteger}";
+$inputTransfer = "0x{$formatMethodTransfer}{$formatFrom}{$formatTo}{$formatInteger}";
+$inputBurn = "0x{$formatMethodBurn}{$formatInteger}";
+echo "mint:" . $inputMint . "\n";
+echo "transfer:" . $inputTransfer . "\n";
+echo "burn:" . $inputBurn . "\n";
