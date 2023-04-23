@@ -119,7 +119,7 @@ class SignSDK{
         if($blockNumber == null){
             throw new Exception("Request for blockNumber failed.");
         }
-        $blockLimit =  $blockNumber + 999;
+        $blockLimit =  $blockNumber + 900;
         $tx_hash = FFI::new("char*");
         $signed = FFI::new("char*");
         $keypair = $this->libFisco->bcos_sdk_create_keypair_by_hex_private_key(0,$privateKey);
